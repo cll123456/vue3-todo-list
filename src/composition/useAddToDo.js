@@ -11,6 +11,10 @@ export function useAddToDo(todoList){
     const inputValueRef = ref('');
     // 添加代办
     const addTodo = () => {
+        if(!inputValueRef.value){
+            alert('请输入todo，再进行添加');
+            return ;
+        }
         const addObj = {
             id: util.generateID(),
             title: inputValueRef.value,
